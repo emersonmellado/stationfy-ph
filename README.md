@@ -8,16 +8,16 @@
 > Gulp provide fast workspace with quick feedback.
 
 
-## Usage
-
-### Run
-
+## Usage, just run the commands bellow
 ```
 git clone https://github.com/emersonmellado/stationfy-ph.git
+cd stationfy-ph
 npm install
 bower install
 gulp serve
 ```
+
+And be happy :)
 
 ## Features
 
