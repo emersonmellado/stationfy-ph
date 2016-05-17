@@ -1,0 +1,49 @@
+<acme-navbar creation-date="main.creationDate"></acme-navbar>
+<div class="container-page">
+    <div ng-if="posts.loading">
+        <center>
+            <span class="hunting-down">Hunting Down Posts...</span>
+        </center>
+    </div>
+    <div class="post-style" ng-if="!posts.loading">
+        <div class="row">
+            <div class="post-header">
+                <span class="post-list-title">Today in Tech</span>
+                <span>
+                    <a href="#" ng-click="posts.order('name')">Name</a>
+                    <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
+                <a href="#" ng-click="posts.order('votes_count')">Votes</a>
+                <span class="sortorder" ng-show="predicate === 'votes_count'" ng-class="{reverse:reverse}"></span>
+                </span>
+                <span class="post-list-order pull-right">
+                    <a href="#" ng-click="posts.popular();">POPULAR</a> 
+                    | 
+                    <a  href="#" ng-click="posts.newest();">NEWEST</a>
+                </span>
+            </div>
+        </div>
+        <div scrolly="posts.showMore()">
+            <div ng-repeat="p in posts.posts" class="row">
+                <div class="post-list">
+                    <a href="#" ng-click="posts.open(p.id)">
+                        <div class="img-post fixed-width-115">
+                            <img height="80" ng-src="{{ p.thumbnail.image_url }}" class="img-posts" />
+                        </div>
+                        <div class="data-post">
+                            <span class="data-post-title">                            
+                            {{ p.name }}                            
+                        </span>
+                            <span class="data-post-tagline">{{ p.tagline }}</span>
+                            <button class="btn btn-default btn-xs">
+                                <i class="glyphicon glyphicon glyphicon-triangle-top"></i> {{p.votes_count}}
+                            </button>
+                            <button class="btn btn-default btn-xs">
+                                <i class="glyphicon glyphicon-comment"></i> {{p.comments_count}}
+                            </button>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

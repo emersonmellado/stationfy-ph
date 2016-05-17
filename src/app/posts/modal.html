@@ -1,0 +1,38 @@
+<div class="container-page">
+    <div ng-if="comment.loading">
+        <center>
+            Hunting Down Comments...
+        </center>
+    </div>
+    <div class="modal-style" ng-if="!comment.loading">
+        <ul>
+            <li ng-repeat="comment in comment.comments | orderBy: votes">
+                <div class="modal-list">
+                    <div class="img-modal fixed-width-30">
+                        <img height="30" ng-src="{{ comment.user.image_url.original }}" class="img-modal" />
+                    </div>
+                    <div class="data-modal">
+                        <span class="data-modal-title">
+                            <p>
+                                <a href="{{comment.user.profile_url}}">{{comment.user.name}}</a> - {{comment.user.headline}}
+                            </p>
+                            <p ng-bind-html="comment.body | unsafe"></p>
+                        </span>
+                        <i class="glyphicon glyphicon glyphicon-triangle-top"></i> {{comment.votes}}
+                    </div>
+                </div>
+                <ul class="modal-child-style">
+                    <li ng-repeat="child in comment.child_comments">
+                        <img height="30" ng-src="{{ child.user.image_url.original }}" class="img-modal-child" />
+                        <p class="data-modal-child-title">
+                            <a href="{{comment.user.profile_url}}">{{comment.user.name}}</a> - {{comment.user.headline}}
+                        </p>
+                        <ul>
+                            <li><p ng-bind-html="child.body | unsafe"></p></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

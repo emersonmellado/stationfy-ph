@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+        <div class="navbar-header col-md-12">
+            <div class="col-md-6">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/3853372d.stationfy_190x29_nobeta.png">
+                </a>
+            </div>
+            <div class="col-md-6">
+                <div class="navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle pic-menu pull-right" data-toggle="popover" data-placement="bottom" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/user.jpg" height="32" width="32" class="img-circle">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="popover-content" class="list-group popover" style="display: none">
+                <a href="#" class="list-group-item">My Profile</a>
+                <a href="#" class="list-group-item">My collections</a>
+                <a href="#" class="list-group-item">Invites (0)</a>
+                <a href="#" class="list-group-item">Settings</a>
+                <a href="#" class="list-group-item">API Dashboard</a>
+                <a href="#" class="list-group-item">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+$(document).ready(function() {
+
+    var options = {
+     content: function() {
+        return $('#popover-content').html();
+     },
+     html: true,
+     trigger: 'manual'
+    };
+    $('html').click(function(e) {
+        $('[data-toggle="popover"]').popover('hide');
+    });
+
+    $('[data-toggle="popover"]').popover(options).click(function(e) {
+        $(this).popover('toggle');
+        e.stopPropagation();
+    });
+});
+</script>

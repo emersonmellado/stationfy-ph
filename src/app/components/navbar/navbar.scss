@@ -1,0 +1,75 @@
+
+.acme-navbar-text {
+    color: white;
+}
+
+.pic-menu,
+.img-profile {
+    padding: 0px;
+}
+
+.nav > li > a.pic-menu {
+    padding: 8px;
+}
+
+.navbar {
+    margin-bottom: 0px;
+}
+
+.navbar-nav {
+    margin: 0px!important;
+}
+
+.navbar-default {
+    background: $bg-color-light!important;
+    box-shadow: 0px 2px 2px #f6f6f6;
+}
+
+.popover-content {
+    background: white;
+    z-index: 101;
+    .list-group-item {
+        line-height: 1.8em;
+        border: 0;
+        font-weight: 400;
+        font-size: 12px;
+        colod: $font-color-dark;
+        padding: 0px;
+        width: 123px;
+        text-transform: uppercase;
+        &:hover {
+            background: none;
+            text-decoration: underline
+        }
+    }
+}
+
+.popover > .arrow,
+.popover > .arrow:after {
+    background: transparent;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        img {
+            content: url("../assets/images/ab7e532b.stnfy_logo_mobile.jpg");
+            background-repeat: no-repeat;
+            width: auto;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            margin-top: -5px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-header {
+        float: none!important;
+    }
+    .navbar-brand {
+        img {
+            margin-top: -5px;
+        }
+    }
+}
